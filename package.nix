@@ -1,5 +1,4 @@
 { stdenv
-, src
 , fetchFromGitHub
 , pandoc
 , openjdk8
@@ -27,9 +26,14 @@
 }:
 
 stdenv.mkDerivation {
-  inherit src;
-
   name = "kevm";
+
+  src = builtins.fetchGit {
+    url = https://github.com/kframework/evm-semantics;
+    submodules = true;
+    ref = "master";
+    rev = "6955e13c52d627f807dd48e3d90cf1d0517e5e2c";
+  };
 
   # patches = [ ./kevm.patch ];
   buildInputs = [ gnused pandoc openjdk8 ocaml opam maven z3 mpfr autoconf automake libtool ncurses unzip git curl rsync gcc perl which pkgconfig flex zlib python3 ];

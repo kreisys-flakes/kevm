@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "kevm": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1604433024,
-        "narHash": "sha256-+QPmLLK4ciGg8XNwSJHw5PxtxIAJNDkEcpLKneHMEeE=",
-        "ref": "master",
-        "rev": "6955e13c52d627f807dd48e3d90cf1d0517e5e2c",
-        "revCount": 2264,
-        "type": "git",
-        "url": "https://github.com/kframework/evm-semantics?submodules=true"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://github.com/kframework/evm-semantics?submodules=true"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1604533142,
@@ -32,7 +16,6 @@
     },
     "root": {
       "inputs": {
-        "kevm": "kevm",
         "nixpkgs": "nixpkgs",
         "utils": "utils"
       }
