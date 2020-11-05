@@ -23,6 +23,7 @@
 , flex
 , zlib
 , python3
+, gnused
 }:
 
 stdenv.mkDerivation {
@@ -31,11 +32,12 @@ stdenv.mkDerivation {
   name = "kevm";
 
   # patches = [ ./kevm.patch ];
-  buildInputs = [ pandoc openjdk8 ocaml opam maven z3 mpfr autoconf automake libtool ncurses unzip git curl rsync gcc perl which pkgconfig flex zlib python3 ];
+  buildInputs = [ gnused pandoc openjdk8 ocaml opam maven z3 mpfr autoconf automake libtool ncurses unzip git curl rsync gcc perl which pkgconfig flex zlib python3 ];
 
   configurePhase = ''
     export HOME="$NIX_BUILD_TOP"
     export NIX_CFLAGS_COMPILE="-Wno-error=unused-result $NIX_CFLAGS_COMPILE"
+    sed -i "s#mvn#mvn -Dmaven.repo.local=$HOME/.m2#" Makefile
     make deps
   '';
 

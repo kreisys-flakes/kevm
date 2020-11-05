@@ -3,7 +3,8 @@
 
   inputs = {
     kevm = {
-      url = "github:kframework/evm-semantics?submodules=true";
+      url = "https://github.com/kframework/evm-semantics?submodules=true";
+      type = "git";
       flake = false;
     };
     utils.url = "github:numtide/flake-utils";
